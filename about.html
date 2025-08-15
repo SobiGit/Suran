@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="درباره سوران آب حیات - مهندس برق و طراح دیجیتال">
+	<meta name="author" content="سوران آب حیات">
+	<meta name="keywords" content="سوران آب حیات، مهندس برق، طراحی دیجیتال، هنرمند ایرانی، رزومه، نمونه کار">
+    <title>About Me</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>درباره من</header>
+<nav>
+    <button class="menu-toggle">☰</button>
+    <div class="nav-links">
+        <a href="index.html">صفحه اصلی</a>
+        <a href="about.html">درباره من</a>
+        <a href="resume.html">رزومه</a>
+        <a href="portfolio.html">نمونه‌کارها</a>
+        <a href="contact.html">تماس</a>
+		<button id="theme-toggle" class="theme-button"><i class="fas fa-moon"></i></button>
+    </div>
+</nav>
+
+
+ <!-- محتوای اصلی هر صفحه -->
+ 
+	<div id="loading">در حال بارگذاری...</div>
+
+    <section class="fade-in">
+        <h2>سوران آب حیات</h2>
+        <img src="images/profile.png" alt="تصویر من" style="width:200px; height:200px; border-radius:50%; margin:20px;">
+        <h3>مهندس برق | هنرمند | طراح</h3>
+        <p>در این صفحه می‌توانید بیشتر با من، علایق و مهارت‌هایم آشنا شوید.</p>
+	</section>	
+		
+	<section class="fade-in">		
+        <h2>کمی درباره من</h2>
+		<p>سلام! من سورانم، یه مهندس برق که از بچگی عاشق نقاشی و ساختن چیزای جدید بودم. توی دانشگاه صنعتی اصفهان مهندسی خوندم و اونجا فهمیدم که می‌شه هم با فرمول‌ها کار کرد و هم با خلاقیت. طراحی با مداد و قلم نوری برام یه جور آرامشه، و کار با مدارات برقی یه جور هیجان. توی زندگیم سعی کردم از هر تجربه‌ای یه چیزی یاد بگیرم—چه لحیم‌کاری باشه، چه ساخت کلیپ و چه حتی گپ زدن با بچه‌ها موقع تدریس!</p>
+	</section>	
+	
+	
+	<section class="fade-in">	
+        <h3>مهارت‌ها</h3>
+        <p>• طراحی با مداد و قلم نوری</p>
+        <p>• مهندسی برق و الکترونیک</p>
+        <p>• تدوین و ساخت کلیپ</p>
+        
+        <h3>علایق</h3>
+        <p>• هنر و ادبیات</p>
+        <p>• تکنولوژی و مهندسی</p>
+        <p>• آموزش و یادگیری</p>
+    </section>
+	
+
+    <footer>
+        <p>سایت <a href="https://sobi.lovestoblog.com/" target="_blank">خاطرات من</a></p>
+    </footer>
+	
+	<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		var menuToggle = document.querySelector('.menu-toggle');
+		var navLinks = document.querySelector('.nav-links');
+		
+		if (menuToggle && navLinks) {
+			menuToggle.addEventListener('click', function() {
+				navLinks.classList.toggle('active');
+				console.log('منو کلیک شد!'); // برای دیباگ
+			});
+		} else {
+			console.error('المان‌های منو پیدا نشدند!'); // برای دیباگ
+		}
+	});
+	</script>
+	
+	
+	
+	<button id="back-to-top" title="بازگشت به بالا">↑</button>
+
+	<script>
+	// دکمه بازگشت به بالا
+	var backToTopButton = document.getElementById("back-to-top");
+
+	// وقتی کاربر 20 پیکسل از بالای صفحه اسکرول کرد، دکمه را نشان بده
+	window.onscroll = function() {
+		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			backToTopButton.style.display = "block";
+		} else {
+			backToTopButton.style.display = "none";
+		}
+	};
+
+	// وقتی روی دکمه کلیک شد، به بالای صفحه اسکرول کن
+	backToTopButton.addEventListener("click", function() {
+		document.body.scrollTop = 0; // برای Safari
+		document.documentElement.scrollTop = 0; // برای Chrome, Firefox, IE و Opera
+	});
+	
+	// کلید تغییر تم
+	document.addEventListener('DOMContentLoaded', function() {
+    var themeToggle = document.getElementById('theme-toggle');
+    var icon = themeToggle.querySelector('i');
+    
+    themeToggle.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        
+        // تغییر آیکون
+        if (document.body.classList.contains('dark-mode')) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+            localStorage.setItem('theme', 'light');
+        }
+    });
+    
+    // بررسی تم ذخیره شده
+    var savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    }
+	});
+	
+	
+	
+	window.addEventListener('load', function() {
+    document.body.classList.add('loaded');
+	});
+	
+	
+	
+	</script>
+
+	
+	
+</body>
+</html>

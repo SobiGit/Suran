@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="تماس با سوران آب حیات - مهندس برق و طراح دیجیتال">
+    <meta name="author" content="سوران آب حیات">
+	<meta name="keywords" content="سوران آب حیات، مهندس برق، طراحی دیجیتال، هنرمند ایرانی، رزومه، نمونه کار">
+    <title>Contact Me</title>
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+
+
+<body>
+    <header>تماس با من</header>
+    
+<nav>
+    <button class="menu-toggle">☰</button>
+    <div class="nav-links">
+        <a href="index.html">صفحه اصلی</a>
+        <a href="about.html">درباره من</a>
+        <a href="resume.html">رزومه</a>
+        <a href="portfolio.html">نمونه‌کارها</a>
+        <a href="contact.html">تماس</a>
+		<button id="theme-toggle" class="theme-button"><i class="fas fa-moon"></i></button>
+    </div>
+</nav>
+
+
+
+	<div id="loading">در حال بارگذاری...</div>
+    
+    <section id="contact" class="fade-in">
+        <h2>ارتباط با من</h2>
+        <p>از طریق فرم زیر می‌توانید با من در ارتباط باشید. من به زودی به پیام شما پاسخ خواهم داد.</p>
+        
+        
+        <div class="contact-form">
+            <form id="contactForm" action="https://formspree.io/f/mldgqwao" method="POST">
+                <div class="form-group">
+                    <label for="name">نام و نام خانوادگی:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">ایمیل:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">موضوع:</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">پیام:</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+                
+				<input type="hidden" name="_replyto" value="sobhan.abhayat@gmail.com">
+				<button type="submit" class="btn">ارسال پیام</button>
+			</form>
+		</div>
+    </section>
+    
+    <section id="social-media">
+        <h2>شبکه‌های اجتماعی</h2>
+        <div class="social-links">
+            <!-- به جای # لینک واقعی شبکه‌های اجتماعی خود را قرار دهید -->
+            <a href="https://www.instagram.com/suran.abhayat" target="_blank" class="social-link">
+				<i class="fab fa-instagram social-icon"></i>
+                Instagram
+            </a>
+            
+            <a href="https://t.me/suran_Abhayat" target="_blank" class="social-link">
+                <i class="fab fa-telegram-plane social-icon"></i>
+                Telegram
+            </a>
+            
+            <a href="https://www.linkedin.com/in/suranabhayat/" target="_blank" class="social-link">
+                <i class="fab fa-linkedin-in social-icon"></i>
+                LinkedIn
+            </a>
+        </div>
+    </section>
+    
+    <section id="location">
+        <h2>موقعیت من</h2>
+        <div class="map-container">
+            <!-- در اینجا می‌توانید نقشه Google Maps یا یک تصویر جایگزین قرار دهید -->
+            <img src="/api/placeholder/600/300" alt="نقشه" class="map-image">
+            <p>ایران</p>
+        </div>
+    </section>
+    
+    <footer>
+        <p>تمامی حقوق محفوظ است &copy; سوران آب حیات</p>
+    </footer>
+
+ 
+
+	<script>
+	
+	document.addEventListener('DOMContentLoaded', function() {
+		var menuToggle = document.querySelector('.menu-toggle');
+		var navLinks = document.querySelector('.nav-links');
+		
+		if (menuToggle && navLinks) {
+			menuToggle.addEventListener('click', function() {
+				navLinks.classList.toggle('active');
+				console.log('منو کلیک شد!'); // برای دیباگ
+			});
+		} else {
+			console.error('المان‌های منو پیدا نشدند!'); // برای دیباگ
+		}
+	});
+	
+
+
+	</script>
+	
+	
+	
+	
+	<button id="back-to-top" title="بازگشت به بالا">↑</button>
+
+	<script>
+	// دکمه بازگشت به بالا
+	var backToTopButton = document.getElementById("back-to-top");
+
+	// وقتی کاربر 20 پیکسل از بالای صفحه اسکرول کرد، دکمه را نشان بده
+	window.onscroll = function() {
+		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			backToTopButton.style.display = "block";
+		} else {
+			backToTopButton.style.display = "none";
+		}
+	};
+
+	// وقتی روی دکمه کلیک شد، به بالای صفحه اسکرول کن
+	backToTopButton.addEventListener("click", function() {
+		document.body.scrollTop = 0; // برای Safari
+		document.documentElement.scrollTop = 0; // برای Chrome, Firefox, IE و Opera
+	});
+	
+	
+	// کلید تغییر تم
+	document.addEventListener('DOMContentLoaded', function() {
+    var themeToggle = document.getElementById('theme-toggle');
+    var icon = themeToggle.querySelector('i');
+    
+    themeToggle.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        
+        // تغییر آیکون
+        if (document.body.classList.contains('dark-mode')) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+            localStorage.setItem('theme', 'light');
+        }
+    });
+    
+    // بررسی تم ذخیره شده
+    var savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    }
+	});
+	
+	
+	window.addEventListener('load', function() {
+    document.body.classList.add('loaded');
+	});
+	
+	
+	</script>
+		
+	
+	
+	
+</body>
+</html>

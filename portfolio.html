@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="نمونه‌کارهای طراحی و مهندسی سوران آب حیات - از هنر تا پروژه‌های برقی">
+	<meta name="author" content="سوران آب حیات">
+	<meta name="keywords" content="سوران آب حیات، مهندس برق، طراحی دیجیتال، هنرمند ایرانی، رزومه، نمونه کار">
+    <title>My portfolio</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>نمونه کارها</header>
+<nav>
+    <button class="menu-toggle">☰</button>
+    <div class="nav-links">
+        <a href="index.html">صفحه اصلی</a>
+        <a href="about.html">درباره من</a>
+        <a href="resume.html">رزومه</a>
+        <a href="portfolio.html">نمونه‌کارها</a>
+        <a href="contact.html">تماس</a>
+		<button id="theme-toggle" class="theme-button"><i class="fas fa-moon"></i></button>
+    </div>
+</nav>
+
+
+
+	<div id="loading">در حال بارگذاری...</div>
+
+    <section>
+        <h2>نمونه کارها</h2>
+        <div class="portfolio-categories">
+            <button class="category-button">همه</button>
+            <button class="category-button">طراحی</button>
+            <button class="category-button">مهندسی</button>
+            <button class="category-button">هنری</button>
+        </div>
+
+        <div class="gallery">
+            <div class="gallery-item fade-in">
+                <img src="art1.jpg" alt="طراحی چهره">
+                <h3>طراحی چهره</h3>
+                <p>طراحی با مداد، سال 1402 - با استفاده از مدادهای فابر-کاستل</p>
+            </div>
+            
+            <div class="gallery-item fade-in">
+                <img src="art2.jpg" alt="طراحی دیجیتال">
+                <h3>طراحی دیجیتال</h3>
+                <p>طراحی با قلم نوری</p>
+            </div>
+
+            <div class="gallery-item fade-in">
+                <img src="project1.jpg" alt="پروژه برق">
+                <h3>پروژه مهندسی</h3>
+                <p>طراحی و ساخت مدار الکترونیکی</p>
+            </div>
+
+            <!-- می‌تونید موارد بیشتری اضافه کنید -->
+        </div>
+    </section>
+
+    <footer>
+        <p>سوران آب حیات</p>
+    </footer>
+	
+	<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		var menuToggle = document.querySelector('.menu-toggle');
+		var navLinks = document.querySelector('.nav-links');
+		
+		if (menuToggle && navLinks) {
+			menuToggle.addEventListener('click', function() {
+				navLinks.classList.toggle('active');
+				console.log('منو کلیک شد!'); // برای دیباگ
+			});
+		} else {
+			console.error('المان‌های منو پیدا نشدند!'); // برای دیباگ
+		}
+	});
+	</script>
+	
+	
+	<button id="back-to-top" title="بازگشت به بالا">↑</button>
+
+	<script>
+	// دکمه بازگشت به بالا
+	var backToTopButton = document.getElementById("back-to-top");
+
+	// وقتی کاربر 20 پیکسل از بالای صفحه اسکرول کرد، دکمه را نشان بده
+	window.onscroll = function() {
+		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			backToTopButton.style.display = "block";
+		} else {
+			backToTopButton.style.display = "none";
+		}
+	};
+
+	// وقتی روی دکمه کلیک شد، به بالای صفحه اسکرول کن
+	backToTopButton.addEventListener("click", function() {
+		document.body.scrollTop = 0; // برای Safari
+		document.documentElement.scrollTop = 0; // برای Chrome, Firefox, IE و Opera
+	});
+	
+	
+	// کلید تغییر تم
+	document.addEventListener('DOMContentLoaded', function() {
+    var themeToggle = document.getElementById('theme-toggle');
+    var icon = themeToggle.querySelector('i');
+    
+    themeToggle.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        
+        // تغییر آیکون
+        if (document.body.classList.contains('dark-mode')) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+            localStorage.setItem('theme', 'light');
+        }
+    });
+    
+    // بررسی تم ذخیره شده
+    var savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    }
+	});
+	
+	
+	window.addEventListener('load', function() {
+    document.body.classList.add('loaded');
+	});
+	
+	
+	</script>
+		
+	
+	
+</body>
+</html>

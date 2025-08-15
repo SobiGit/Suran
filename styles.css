@@ -1,0 +1,655 @@
+/* 1. CSS Variables */
+
+
+@font-face {
+    font-family: 'IRANSans';
+    src: url('/fonts/IRANSans_Bold.woff') format('woff');
+    font-weight: bold; /* وزن ضخیم */
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'IRANSans';
+    src: url('/fonts/IRANSansWeb_Medium.woff') format('woff');
+    font-weight: 500; /* ورژن مدیوم */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'IRANSans';
+    src: url('/fonts/IRANSans.woff') format('woff');
+    font-weight: normal; /* وزن معمولی */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'IRANSans';
+    src: url('/fonts/IRANSansWeb_Light.woff') format('woff');
+    font-weight: 300; /* وزن نازک - Light معمولاً 300 هست */
+    font-style: normal;
+}
+
+
+
+:root {
+    /* رنگ‌های اصلی */
+    
+	
+    --primary-color: #007BFF; /* آبی برای دکمه‌ها و لینک‌ها */
+    --secondary-color: #333333; /* خاکستری تیره برای تیترها و هدر */
+    --background-color: #f4f4f4; /* پس‌زمینه روشن */
+    --text-color: #555555; /* رنگ متن معمولی */
+    --box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+    
+    /* فاصله‌گذاری */
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 30px;
+    
+    /* اندازه‌های فونت */
+    --font-size-sm: 1em;
+    --font-size-md: 1em;
+    --font-size-lg: 1.2em;
+    --font-size-xl: 1.5em;
+	
+
+
+	/* متغیرهای تم تاریک */
+	/*
+	--dark-background: linear-gradient(135deg, #1a1a1a, #333);
+	--dark-text: #f4f4f4;
+	--dark-secondary: #2a2a2a; /* یه رنگ تیره‌تر برای هدر و فوتر */
+	/*--dark-box-shadow: 0 2px 5px rgba(255,255,255,0.1);
+	*/
+	
+	
+	
+	
+	/*رنگ های گرم تر برای تم تاریک*/
+    /* متغیرهای تم تاریک */
+    --dark-background: linear-gradient(135deg, #2b1a1a, #3a2a2a); /* قهوه‌ای تیره */
+    --dark-text: #f0d8b0; /* کرم ملایم برای متن */
+    --dark-secondary: #3a2a2a; /* برای هدر و فوتر */
+    --dark-box-shadow: 0 2px 5px rgba(255,255,255,0.1);
+
+	
+	
+	
+	
+}
+
+/* 2. Reset و استایل‌های پایه */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'IRANSans', Arial, sans-serif;
+	font-weight: normal;
+	font-size: var(--font-size-md); /* 1em */
+    background-color: var(--background-color);
+    color: var(--text-color);
+    text-align: center;
+    line-height: 1.6;
+    /*background-image: url('background.png');*/
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+
+/* 3. استایل‌های هدر و منو */
+header {
+	font-family: 'IRANSans', sans-serif; /* فونت مکمل برای هدر */
+    background-color: var(--secondary-color);
+    color: white;
+    padding: var(--spacing-md);
+    font-size: var(--font-size-xl); /* 1.5em */
+    font-weight: bold;
+}
+
+nav {
+    margin: var(--spacing-md);
+    background-color: #f8f9fa;
+    padding: var(--spacing-sm);
+    /*position: sticky;           حذف این خط باعث میشه منوی بالا موقع اسکرول صفحه، حرکت نکنه */
+    top: 0;
+    box-shadow: var(--box-shadow);
+    z-index: 100;
+}
+
+
+/* استایل لینک‌های منو (nav) - بازنویسی برای هماهنگی */
+nav a {
+    margin: 0 var(--spacing-sm);
+    text-decoration: none; /* حذف زیرخط پیش‌فرض */
+    color: var(--secondary-color); /* رنگ اولیه منو */
+    font-weight: bold;
+    transition: text-decoration 0.3s ease, color 0.3s ease;
+}
+
+
+/* استایل کلی لینک‌ها در بدنه */
+a {
+    text-decoration: none; /* حذف زیرخط پیش‌فرض */
+    color: var(--text-color); /* رنگ متن معمولی، هماهنگ با متن اطراف */
+    transition: text-decoration 0.3s ease; /* انیمیشن نرم برای تغییر زیرخط */
+}
+
+a:hover {
+    text-decoration: underline; /* اضافه کردن زیرخط در هاور */
+    color: var(--text-color); /* رنگ بدون تغییر در هاور */
+    /* یا پیشنهاد رنگ حرفه‌ای: */
+    /* color: #0056b3; */ /* تناژ تیره‌تر از --primary-color (#007BFF) */
+}
+
+
+
+nav a:hover {
+    text-decoration: underline; /* زیرخط فقط در هاور */
+    color: var(--secondary-color); /* بدون تغییر رنگ */
+    /* یا پیشنهاد رنگ حرفه‌ای: */
+    /* color: #0056b3; */ /* تناژ تیره‌تر از --primary-color */
+}
+
+/* 4. استایل‌های بخش‌ها */
+section {
+    max-width: 800px;
+    margin: var(--spacing-lg) auto; /* 30px بالا و پایین */
+    padding: var(--spacing-md); /* 20px داخل بخش */
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+}
+
+h2 {
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-md);
+	font-family: 'IRANSans', sans-serif;
+    font-size: var(--font-size-lg); /* 1.2em */
+    font-weight: 500;
+}
+
+h3 {
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-sm);
+	font-family: 'IRANSans', sans-serif;
+    font-size: var(--font-size-md); /* 1em */
+    font-weight: 400;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: var(--spacing-sm);
+	font-family: 'IRANSans', sans-serif;
+	font-weight: 300; 
+    font-size: var(--font-size-md); /* 1em */
+}
+
+
+h2 {
+    border-bottom: 2px solid #007BFF; /* خط آبی فقط زیر h2 */
+    padding-bottom: 10px; /* فاصله بین عنوان و خط */
+    margin-bottom: 20px; /* فاصله بین خط و متن زیر آن */
+}
+
+
+/* 11. انیمیشن‌ها */
+
+
+
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+
+.fade-in-element {
+    animation: fadeIn 1s ease-in-out;
+}
+
+
+
+.fade-in:nth-child(1) { animation-delay: 0s; }
+.fade-in:nth-child(2) { animation-delay: 0.3s; }
+.fade-in:nth-child(3) { animation-delay: 0.6s; }
+
+
+
+/* 5. استایل‌های پروفایل */
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.profile-image {
+	
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #ddd;
+    border: 4px solid var(--primary-color);          
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+/* 6. استایل‌های گالری */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg); /* 30px فاصله بین آیتم‌ها */
+    padding: var(--spacing-md); /* 20px اطراف گالری */
+}
+
+.gallery-item {
+    border-radius: 8px;
+	padding: var(--spacing-sm); /* 10px داخل هر آیتم */
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px; /* ارتفاع ثابت */
+    object-fit: cover; /* عکس‌ها بدون کشیدگی تنظیم می‌شن */
+}
+
+
+.gallery-item p {
+    font-size: var(--font-size-sm); /* 0.9em */
+    color: var(--text-color);
+    margin-top: var(--spacing-sm);
+}
+
+/* 7. استایل‌های رزومه */
+.resume-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--spacing-md);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+}
+
+.resume-section {
+    background: white;
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    margin-bottom: var(--spacing-md);
+    text-align: right;
+}
+
+.skill-bar {
+    width: 100%;
+    background: #f0f0f0;
+    height: 20px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.skill-level {
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 10px;
+    position: relative;
+}
+
+.timeline-item {
+    padding: 0 0 var(--spacing-md) 0;
+    margin: 0 10px 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.timeline-item:last-child {
+    border-bottom: none;
+}
+
+.time-period {
+    color: #666;
+    font-size: var(--font-size-sm);
+}
+
+/* 8. استایل‌های فورم تماس */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: right;
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+
+.menu-toggle {
+	
+    display: none; /* در دسکتاپ دکمه منو مخفی است */
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+}
+
+
+
+
+
+
+
+.btn {
+    background-color: var(--primary-color);
+    color: white; /* رنگ متن سفید */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover, .category-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* کمی بزرگ‌تر می‌شه */
+    transition: all 0.3s ease;
+}
+
+/* 9. استایل‌های فوتر */
+footer {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-sm);
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+/* 10. Media Queries برای ریسپانسیو */
+@media (max-width: 768px) {
+	
+	.menu-toggle {
+        display: none; /* فقط توی دسکتاپ مخفیه */
+	}	
+	
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .resume-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-section {
+        padding: var(--spacing-sm);
+    }
+}
+
+@media (max-width: 480px) {
+	
+    .menu-toggle {
+        display: block; /* در موبایل دکمه منو نمایش داده می‌شود */
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+
+    .nav-links {
+        display: none; /* منو مخفیه تا کلیک بشه */
+        flex-direction: column;
+        width: 100%;
+        padding: var(--spacing-md);
+    }
+	
+    .nav-links.active {
+        display: flex; /* با کلیک باز می‌شه */
+    }
+	
+   
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+	
+	.gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+
+
+/* استایل‌های اضافی برای صفحه تماس */
+.contact-info {
+    background-color: #f8f9fa;
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    margin-bottom: var(--spacing-md);
+    text-align: right;
+    border-right: 4px solid var(--primary-color);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin: var(--spacing-md) 0;
+    flex-wrap: wrap;
+}
+
+
+
+
+/* استایل خاص برای لینک‌های شبکه‌های اجتماعی */
+.social-link {
+    text-decoration: none; /* حذف زیرخط */
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, text-decoration 0.3s ease;
+}
+
+.social-link:hover {
+    text-decoration: underline; /* زیرخط در هاور */
+    color: var(--text-color); /* بدون تغییر رنگ */
+    /* یا پیشنهاد رنگ حرفه‌ای: */
+    /* color: #0056b3; */
+    transform: translateY(-5px); /* انیمیشن قبلی حفظ شود */
+}
+
+
+
+
+.social-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 30px;
+    margin-bottom: var(--spacing-sm);
+	
+	
+	
+}
+
+.map-container {
+    margin-top: var(--spacing-md);
+}
+
+.map-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+}
+
+
+#back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 50%;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+#back-to-top:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+.dark-mode {
+    background: var(--dark-background); /* گرادیانت اینجا اعمال می‌شه */
+    color: var(--dark-text);
+}
+
+.dark-mode header, .dark-mode footer {
+    background-color: var(--dark-secondary); /* #3a2a2a */
+    color: var(--dark-text); /* #f0d8b0 - کرم ملایم */
+}
+
+.dark-mode section, .dark-mode .resume-section {
+    background-color: #333;
+    box-shadow: var(--dark-box-shadow);
+}
+
+.dark-mode h2, .dark-mode h3 {
+    color: var(--dark-text); /* #f0d8b0 */
+}
+
+.dark-mode nav {
+    background-color: #333;
+}
+
+.dark-mode nav a {
+    color: var(--dark-text);
+}
+
+
+
+/* استایل لینک‌ها در حالت دارک مود */
+.dark-mode a {
+    color: var(--dark-text); /* رنگ متن در دارک مود */
+}
+
+.dark-mode a:hover {
+    text-decoration: underline;
+    color: var(--dark-text); /* بدون تغییر رنگ */
+    /* یا پیشنهاد رنگ حرفه‌ای: */
+    /* color: #66b3ff; */ /* تناژ روشن‌تر برای دارک مود */
+}
+
+
+.theme-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--secondary-color);
+    margin-right: 15px;
+    transition: transform 0.3s;
+}
+
+.theme-button:hover {
+    transform: rotate(30deg);
+}
+
+.dark-mode .theme-button {
+    color: var(--dark-text);
+}
+
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f4f4f4; /* رنگ پیش‌فرض برای تم روشن */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    color: #555555; /* رنگ متن برای تم روشن */
+    font-size: 1.2em;
+}
+
+/* تنظیمات برای تم تاریک */
+.dark-mode #loading {
+    background: #222; /* رنگ پس‌زمینه تیره */
+    color: #f4f4f4; /* رنگ متن روشن برای خوانایی */
+}
+
+body.loaded #loading {
+    display: none;
+}
+
